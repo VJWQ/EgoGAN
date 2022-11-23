@@ -1,0 +1,166 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>EgoGAN</title>
+<!-- <meta name="author" content="Wenqi Jia">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta property="og:site_name" content="Wenqi Jia" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Wenqi Jia"/>
+<meta property="og:url" content="https://vjwq.github.io/"/>
+<meta property="og:description" content="PhD Student"/> -->
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<link rel="icon" type="image/png" href="assets/gt-logo.png">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    menuSettings: {zoom: "Double-Click", zscale: "300%"},
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+    MathMenu: {showRenderer: false},
+    "HTML-CSS": {
+        availableFonts: ["TeX"],
+        preferredFont: "TeX",
+        imageFont: null
+    }
+  });
+</script>
+<!-- <style type="text/css">
+    body { background-color: White; font-family: Helvetica, Futura, "Trebuchet MS", sans-serif; width:900px; margin:0 auto;}
+    h1 { color: black; font-family:  Helvetica, Futura, "Trebuchet MS", sans-serif; font-size: 27px; }
+    h2 { color: black; font-family:  Helvetica, Futura, "Trebuchet MS", sans-serif; font-size: 22px}
+    h4 { color: black; font-family:  Helvetica, Futura, "Trebuchet MS", sans-serif; font-size: 15px; font-weight:normal}
+    p { color: black; font-family: Helvetica, Futura, "Trebuchet MS", sans-serif;}
+</style> -->
+</head>
+
+<body><div id="header" class="header" align="center">
+<h1>Generative Adversarial Network for Future <br/>
+  Hand Segmentation from Egocentric Video </h1>
+</body>
+
+
+<body id="Home">
+  <header id="nav-wrapper">
+
+    
+  </header>
+  <table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:40%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr style="padding:0px">
+            <td style="padding:7.5%;width:63%;vertical-align:middle">
+              <p style="text-align-last:justify">
+              <a href="https://vjwq.github.io/">Wenqi Jia</a>*&nbsp&nbsp&nbsp&nbsp
+              <a href="https://aptx4869lm.github.io/">Miao Liu</a>*&nbsp&nbsp&nbsp
+              <a href="https://rehg.org/">James M. Rehg</a>
+            </p>
+            <!-- <p style="text-align:center">Georgia Institute of Technology, Atlanta, United States</p> -->
+            </td>
+          </tr>
+        </tbody></table>
+        <div style="width:100%;text-align:center">Georgia Institute of Technology, Atlanta, United States</div>
+        <div style="width:70%;text-align:right"><small><i>*denotes equal contribution</i></small></div>
+
+        
+        <p style="text-align:center">
+          <a href="https://github.com/VJWQ/EgoGAN.git" style="font-size: 24px;"> [code]</a> 
+          <a href="assets/EgoGAN.pdf" style="font-size: 24px;">[paper]</a> 
+          <a href="assets/EgoGAN-supp.pdf" style="font-size: 24px;">[suppl]</a> 
+          <a href="assets/EgoGAN_poster.pdf" style="font-size: 24px;">[poster]</a> 
+        </p>
+
+        <div style="text-align: center;">
+          <img src="assets/teaser.png"  style="width:800px;height:228px;">
+        </div>
+        
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle;">
+              <section id="Abstract" style="padding-top: 80px; margin-top: -80px;">
+                <h2 class="ui center aligned header" style="font-size: 1.5em; font-weight: normal; margin-bottom: 0.3em; margin-top: 0.8em;">Abstract</h2>
+                We introduce the novel problem of anticipating a time series of future hand masks from egocentric video. A key challenge is to model the stochasticity of future head motions, which globally impact the head-worn camera video analysis. To this end, we propose a novel deep generative model -- EgoGAN. Our model first utilizes a 3D Fully Convolutional Network to learn a spatio-temporal video representation for pixel-wise visual anticipation. It then generates future head motion using the Generative Adversarial Network (GAN), and predicts the future hand masks based on both the encoded video representation and the generated future head motion. We evaluate our method on both the EPIC-Kitchens and the EGTEA Gaze+ datasets. We conduct detailed ablation studies to validate the design choices of our approach. Furthermore, we compare our method with previous state-of-the-art methods on future image segmentation and provide extensive analysis to show that our method can more accurately predict future hand masks. 
+                <br>
+            </td>
+          </tr>
+        </tbody></table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <section id="Approach" style="padding-top: 80px; margin-top: -80px;">
+              <!-- <heading><b>Approach</b></heading> -->
+              <h2 class="ui center aligned header" style="font-size: 1.5em; font-weight: normal; margin-bottom: 0.3em; margin-top: 0.8em;">Approach</h2>
+              <div style="text-align: center;">
+                <!-- <img src="assets/network.png"  style="width:800px;height:228px;"> -->
+                <img src="assets/network.png"  style="width:100%;max-width:100%">
+              </div>
+            </td>
+          </tr>
+
+        </tbody></table>
+
+        
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+          <tr>
+            <td>
+              <section id="Demo Video" style="padding-top: 80px; margin-top: -80px;">
+                  <h2 class="ui center aligned header" style="font-size: 1.5em; font-weight: normal; margin-bottom: 0.3em; margin-top: 0.8em;">Demo Video</h2>
+                  <video muted autoplay loop style="width:80%;vertical-align:middle;">
+                    <source src="assets/demo.mp4" type="video/mp4">
+                  </video>
+            </td>
+          </tr>
+        </tbody></table>
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+            <tr>
+              <td>
+                <section id="Supplementary Video" style="padding-top: 80px; margin-top: -80px;">
+                    <h2 class="ui center aligned header" style="font-size: 1.5em; font-weight: normal; margin-bottom: 0.3em; margin-top: 0.8em;">Supplementary Video</h2>
+                    <video controls="controls" style="width:80%;vertical-align:middle;">
+                    <!-- <video muted autoplay loop style="width:80%;vertical-align:middle;"> -->
+                      <source src="assets/EgoGAN_video.mp4" type="video/mp4">
+                    </video>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+            <tr>
+              <td>
+                <section id="Citation" style="padding-top: 80px; margin-top: -80px;">
+                <h2 class="ui center aligned header" style="font-size: 1.5em; font-weight: normal; margin-bottom: 0.3em; margin-top: 0.8em;">Citation</h2>
+                <p style="padding-bottom: 0.5em; overflow: auto;">If you want to cite our work, please use following BibTex:<br>
+                  <p>
+                  <code>
+                    @article{jia2022generative,<br>
+                      title={Generative Adversarial Network for Future Hand Segmentation from Egocentric Video},<br>
+                      author={Jia, Wenqi and Liu, Miao and Rehg, James M},<br>
+                      journal={arXiv preprint arXiv:2203.11305},<br>
+                      year={2022}<br>
+                    }</code></p></p>
+              </td>
+            </tr>
+          </tbody></table><br>
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+          <tr>
+            <td>
+              <section id="Contact" style="padding-top: 80px; margin-top: -80px;">
+              <h2 class="ui center aligned header" style="font-size: 1.5em; font-weight: normal; margin-bottom: 0.3em; margin-top: 0.8em;">Contact</h2>
+              <ul>
+              <li>For questions about this paper, please contact wenqi dot jia at gatech dot edu. </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
