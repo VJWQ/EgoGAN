@@ -1,1 +1,0 @@
-# EgoGAN Page
