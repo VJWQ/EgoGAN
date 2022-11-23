@@ -1,7 +1,7 @@
 # EgoGAN: Generative Adversarial Network for Future Hand Segmentation from Egocentric Video (ECCV 2022)
 This is the official code release for our ECCV2022 paper on introducing a novel task of predicting a time series of future hand masks from egocentric videos, together with the first deep generative model (EgoGAN) that generate egocentric motion cues for visual anticipations.
 
-**[[Paper](https://arxiv.org/abs/2203.11305)] [[Supplement](https://vjwq.github.io/EgoGAN/assets/EgoGAN-supp.pdf)] [[Project Page](https://vjwq.github.io/EgoGAN-page/)] [[Poster](https://vjwq.github.io/EgoGAN-page/assets/EgoGAN_poster.pdf)] [[Presentation](https://vjwq.github.io/EgoGAN-page/assets/EgoGAN_video.mp4)]**
+**[[Paper](https://arxiv.org/abs/2203.11305)] [[Supplement](https://vjwq.github.io/EgoGAN/assets/EgoGAN-supp.pdf)] [[Project Page](https://vjwq.github.io/EgoGAN/)] [[Poster](https://vjwq.github.io/EgoGAN-page/assets/EgoGAN_poster.pdf)] [[Presentation](https://vjwq.github.io/EgoGAN/assets/EgoGAN_video.mp4)]**
 
 <img src='https://vjwq.github.io/EgoGAN-page/assets/teaser.png'>
 
