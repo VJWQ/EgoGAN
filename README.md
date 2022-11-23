@@ -13,6 +13,9 @@ conda env create -f environment.yml
 conda activate egogan
 ```
 
+## Demo
+<img src='https://vjwq.github.io/EgoGAN-page/assets/demo.gif'>
+
 
 ## Data Preparation
 ### Epic-Kitchen Dataset
@@ -28,7 +31,7 @@ python tools/run_net.py --cfg /path/to/Ego4D-Future-Hand-Prediction/configs/Ego4
 ## Evaluation
 ```shell
 ```
-- Generate submission file for [evalai](https://eval.ai/web/challenges/challenge-page/1630/overview) platform 
+
 ```shell
 ```
 
