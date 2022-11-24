@@ -14,7 +14,7 @@ conda activate egogan
 ```
 
 ## Demo
-<img src='https://vjwq.github.io/EgoGAN/assets/demo.gif'>
+<img src='demo.gif'>
 
 
 ## Data Preparation
